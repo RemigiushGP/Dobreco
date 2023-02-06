@@ -1,0 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace WindowsFormsApp3
+{
+    public class Towar
+    {
+        [Key]
+
+        public int Id_towar { get; set; }
+        public string Nazwa { get; set; }
+        public string Jednostka { get; set; }
+    }
+}
