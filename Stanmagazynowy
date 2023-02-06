@@ -1,0 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace WindowsFormsApp3
+{
+    public class StanMagazynowy
+    {
+        [Key]
+
+        public int Id_stanu { get; set; }
+        public int Ilosc { get; set; }
+        public int Id_towaru { get; set; }
+    }
+}
