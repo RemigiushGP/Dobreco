@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp3
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void buttonDodaj_Click(object sender, EventArgs e)
+        {
+            using (var db = new Obsluga())
+            {
+                Towar towar = new Towar
+                {
+                    Nazwa = textBoxNazwa.Text,
+                    Jednostka = comboBoxJednostka.Text
+
+                };
+                db.Towar.Add(towar);
+                db.SaveChanges();
+                StanMagazynowy stanMagazynowy = new StanMagazynowy
+                {
+                    Ilosc = Int32.Parse(textBoxIlosc.Text),
+                    Id_towaru = db.Towar.Count()
+                };
+                db.StanMagazynowy.Add(stanMagazynowy);
+                db.SaveChanges();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            comboBoxJednostka.Items.Add("kg");
+            comboBoxJednostka.Items.Add("litry");
+            comboBoxJednostka.Items.Add("gramy");
+            comboBoxJednostka.Items.Add("sztuki");
+
+        }
+    }
+}
