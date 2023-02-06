@@ -1,0 +1,8 @@
+Aplikacja Windows Forms (.NET Framework)
+Visual studio: Platforma .NET Framework 4.7.2
+BIN > DEBUG > TUTAJ TWORZYSZ BAZE
+
+Nugget:
+SQLite entity 
+Microsoft.EntityFrameworkCore.Sqlite
+
